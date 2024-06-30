@@ -1,0 +1,13 @@
+.img-panel{
+    width: 250px;
+    height: 250px;
+    margin: 10px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #ccc;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
