@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\MenteeRequest;
+use App\Http\Requests\MenteeUpdateRequest;
 use App\Http\Requests\MentorRequest;
 use App\Http\Requests\MentorUpdateRequest;
 use App\Models\Msituation;
@@ -64,7 +65,7 @@ class MenteeController extends Controller
     }
 
     // esta función se encarga de actualizar un mentee en la base de datos.
-    public function update(MentorUpdateRequest $request, User $mentee)
+    public function update(MenteeUpdateRequest $request, User $mentee)
     {
         $mentee = User::find($mentee->id);
 

@@ -26,8 +26,8 @@ class EventController extends Controller
         $start = date('Y-m-d', strtotime($request->start));
         $end = date('Y-m-d', strtotime($request->end));
 
-        $events = Event::where('start_date', '>=', $start)
-            ->where('end_date', '<=', $end)
+        $events = Event::where('date', '>=', $start)
+            ->where('date', '<=', $end)
             ->where('user_id', $user->id)
             ->get()
             ->map(fn ($item) => [
@@ -49,6 +49,7 @@ class EventController extends Controller
     public function create(Event $event)
     {
         //
+        
         return view('event-form', ['data' => $event, 'action' => route('events.store')]);
     }
 
@@ -58,6 +59,7 @@ class EventController extends Controller
     public function store(EventRequest $request, Event $event)
     {
         //
+        $event->status_event = 'pendiente';
         return $this->update($request, $event);
     }
 
@@ -90,8 +92,10 @@ class EventController extends Controller
             return $this->destroy($event);
         }
         $event->user_id = auth()->id();
-        $event->start_date = $request->start_date;
-        $event->end_date = $request->end_date;
+        $event->date = $request->date;
+        $event->starts_at = $request->starts_at;
+        $event->ends_at = $request->ends_at;
+        $event->description = $request->description;
         $event->title = $request->title;
         $event->category = $request->category;
 

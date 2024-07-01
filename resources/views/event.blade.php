@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Calendar')
+@section('title', 'Calendario')
 
 @section('content_header')
-    <h1><b>Calendar</b></h1>
+    <h1><b>Calendario</b></h1>
 @stop
 
 @section('content')
@@ -15,7 +15,7 @@
                 </div>
             </div>
             <div class="text-center mt-5 mb-4">
-                <a href="{{ route('home') }}" class="btn btn-primary">Go to Home</a> 
+                <a href="{{ route('home') }}" class="btn btn-primary">Regresar</a> 
             </div>
         </div>
         

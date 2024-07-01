@@ -23,12 +23,13 @@ class EventRequest extends FormRequest
     {
         return [
             //
-            'start_date' => 'required|date_format:Y-m-d',
-            'end_date' => 'required|date_format:Y-m-d',
-            //'start_time' => 'required|date_format:H:i',
-            //'end_time' => 'required|date_format:H:i',
             'title' => 'required',
-            'category' => 'required',
+            'description' => 'required',
+            'date' => 'required|date_format:Y-m-d',
+            'starts_at' => 'required|date_format:H:i',
+            'ends_at' => 'required|date_format:H:i'
+            //'start_date' => 'required|date_format:Y-m-d',
+            //'end_date' => 'required|date_format:Y-m-d',
         ];
     }
 }

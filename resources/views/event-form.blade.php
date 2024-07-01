@@ -3,33 +3,32 @@
         @method('put')
     @endif
     <div class="row">
-        <div class="col-6">
-            <div class="mb-3">
-                <input type="text" name="start_date" readonly value="{{ $data->start_date ?? request()->start_date }}" class="form-control datepicker">
-            </div>
-        </div>
-        <div class="col-6">
-            <div class="mb-3">
-                <input type="text" name="end_date" readonly value="{{ $data->end_date ?? request()->end_date }}" class="form-control datepicker">
-            </div>
-        </div>
-        
-        {{-- 
-            <div class="col-12">
-            <div class="mb-3">
-                <input type="text" name="start_time" value="{{ $data->start_time }}" class="form-control timepicker">
-            </div>
-        </div>
         <div class="col-12">
             <div class="mb-3">
-                <input type="text" name="end_time" value="{{ $data->end_time }}" class="form-control timepicker">
+                <input type="text" name="date" readonly value="{{ $data->date ?? request()->date }}" class="form-control datepicker">
             </div>
         </div>
-        --}}
-        
+
+        <div class="row">
+            <div class="col-6">
+                <div class="mb-3">
+                    <input type="time" name="starts_at" value="{{ $data->starts_at }}" class="form-control">
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="mb-3">
+                    <input type="time" name="ends_at" value="{{ $data->ends_at }}" class="form-control">
+                </div>
+            </div>
+        </div>
         <div class="col-12">
             <div class="mb-3">
                 <textarea name="title" class="form-control" placeholder="Escribe un título para la sesión">{{ $data->title }}</textarea>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="mb-3">
+                <textarea name="description" class="form-control" placeholder="Escribe una descripción para la sesión">{{ $data->description }}</textarea>
             </div>
         </div>
         <div class="col-12">
