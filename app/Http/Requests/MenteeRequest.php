@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class MentorRequest extends FormRequest
+class MenteeRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -28,7 +28,7 @@ class MentorRequest extends FormRequest
             'phone' => ['numeric' , 'digits:10' , 'required' , 'unique:users'],
             'email' => ['required' , 'string' , 'lowercase' , 'email' , 'max:255' , 'unique:users'],
             'password' => ['required' , 'string' , 'min:8' , 'confirmed'],
-            'mtypes' => ['required' , 'array'],
+            'msituation_id' => ['required' , 'numeric'],
         ];
     }
 
@@ -55,8 +55,7 @@ class MentorRequest extends FormRequest
             'password.string' => 'El campo contraseña debe ser una cadena de texto.',
             'password.min' => 'El campo contraseña debe contener al menos 8 caracteres.',
             'password.confirmed' => 'Las contraseñas no coinciden.',
-            'mtypes.required' => 'El campo Figuras Tutoriales es obligatorio.',
+            'msituation_id.required' => 'La situacion academica es requerida.',
         ];
     }
-
 }

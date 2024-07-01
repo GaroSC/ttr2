@@ -36,17 +36,18 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label class="col-sm-2 col-form-label" for="msituations">Situación Académica:</label>
+                    <label class="col-sm-2 col-form-label" for="msituation_id">Situación Académica:</label>
                     <div class="col-sm-10">
-                        <select class="form-control rounded js-example-basic-multiple" id="msituations" name="msituations[]" multiple="multiple" required>
+                        <select class="form-control rounded js-example-basic-single" id="msituation_id" name="msituation_id" required>
+                            <option value="">Seleccione una opción</option>
                             @foreach ($msituations as $msituation)
-                                <option value="{{ $msituation->id }}" {{ in_array($msituation->id, old('msituations', [])) ? 'selected' : '' }}>
+                                <option value="{{ $msituation->id }}" {{ old('msituations') == $msituation->id ? 'selected' : '' }}>
                                     {{ $msituation->name }}
                                 </option>
                             @endforeach
                         </select>
 
-                        @error('msituations')
+                        @error('msituation_id')
                             <span class="text-danger">
                                 <span>*{{ $message }}</span>
                             </span>

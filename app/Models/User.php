@@ -29,6 +29,7 @@ class User extends Authenticatable
         'email',
         'password',
         'photo',
+        'msituation_id',
     ];
 
     /**
@@ -68,7 +69,7 @@ class User extends Authenticatable
     }
 
     //Relacion uno a muchos de usuario a situacion academica
-    public function msituations(): BelongsTo
+    public function msituation(): BelongsTo
     {
         return $this->belongsTo(Msituation::class);
     }

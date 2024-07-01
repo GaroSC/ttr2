@@ -44,14 +44,12 @@
         const modal = $('#modal-action');
         const csrfToken = $('meta[name=csrf_token]').attr('content');
 
-        console.log(csrfToken);
-
         document.addEventListener('DOMContentLoaded', function() {
             var calendarEl = document.getElementById('calendar');
             var calendar = new FullCalendar.Calendar(calendarEl, {
                 initialView: 'dayGridMonth',
                 themeSystem: 'bootstrap5',
-                events: `{{ route('events.list') }}`,
+                events: `{{ route('events.list', ['user_id' => $user->id]) }}`,
                 editable: true,
                 dateClick: function (info) {
                 $.ajax({

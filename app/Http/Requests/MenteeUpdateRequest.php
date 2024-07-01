@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class MentorRequest extends FormRequest
+class MenteeUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,12 +23,11 @@ class MentorRequest extends FormRequest
     {
         return [
             //
-            'name' => ['required' , 'regex:/^[a-zA-ZáéíóúÁÉÍÓÚ\s]+$/' , 'max:255'],
-            'id_ipn' => ['required' , 'numeric' , 'unique:users'],
-            'phone' => ['numeric' , 'digits:10' , 'required' , 'unique:users'],
-            'email' => ['required' , 'string' , 'lowercase' , 'email' , 'max:255' , 'unique:users'],
-            'password' => ['required' , 'string' , 'min:8' , 'confirmed'],
-            'mtypes' => ['required' , 'array'],
+            'name' => ['required', 'regex:/^[a-zA-ZáéíóúÁÉÍÓÚ\s]+$/', 'max:255'],
+            'id_ipn' => ['required','numeric'],
+            'phone' => ['numeric', 'digits:10', 'required'],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255'],
+            'msituation_id' => ['required', 'numeric'],
         ];
     }
 
@@ -50,13 +49,8 @@ class MentorRequest extends FormRequest
             'email.lowercase' => 'El campo correo electrónico debe estar en minúsculas.',
             'email.email' => 'El campo correo electrónico debe ser un correo válido.',
             'email.max' => 'El campo correo electrónico no puede contener más de 255 caracteres.',
-            'email.unique' => 'El correo electrónico ya ha sido registrado.',
-            'password.required' => 'El campo contraseña es obligatorio.',
-            'password.string' => 'El campo contraseña debe ser una cadena de texto.',
-            'password.min' => 'El campo contraseña debe contener al menos 8 caracteres.',
-            'password.confirmed' => 'Las contraseñas no coinciden.',
-            'mtypes.required' => 'El campo Figuras Tutoriales es obligatorio.',
+            'msituation_id.required' => 'El campo msituation es obligatorio.',
+            'msituation_id.numeric' => 'El campo msituation debe ser un número.',
         ];
     }
-
 }

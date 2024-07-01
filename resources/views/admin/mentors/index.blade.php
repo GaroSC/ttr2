@@ -82,7 +82,7 @@
                             @endcan
                             @can('mentee.index')
                                 <td width="5px">
-                                    <a href="{{ route('events.index') }}" class="btn btn-default btn-sm mb-2">Calendario</a>
+                                    <a href="{{ route('events.show', $mentor) }}" class="btn btn-default btn-sm mb-2">Calendario</a>
                                 </td>
                             @endcan
                         </tr>

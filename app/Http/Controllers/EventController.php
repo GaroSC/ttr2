@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\EventRequest;
 use App\Models\Event;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class EventController extends Controller
 {
@@ -13,20 +15,22 @@ class EventController extends Controller
      */
     public function index()
     {
-        //
-        return view('event');
+        $user = auth()->user();
+        return view('event', compact('user'));
     }
 
     public function listEvent(Request $request)
     {
+        $user = User::find($request->user_id);
+
         $start = date('Y-m-d', strtotime($request->start));
         $end = date('Y-m-d', strtotime($request->end));
 
         $events = Event::where('start_date', '>=', $start)
             ->where('end_date', '<=', $end)
-            ->where('user_id', auth()->id())
+            ->where('user_id', $user->id)
             ->get()
-            ->map( fn ($item) => [
+            ->map(fn ($item) => [
                 'id' => $item->id,
                 'user_id' => $item->user_id,
                 'title' => $item->title,
@@ -63,6 +67,8 @@ class EventController extends Controller
     public function show(Event $event)
     {
         //
+        $user = User::find($event->id);
+        return view('event', compact('user'));
     }
 
     /**

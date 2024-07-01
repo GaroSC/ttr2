@@ -7,6 +7,7 @@ use App\Http\Requests\MentorUpdateRequest;
 use App\Models\MType;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class MentorController extends Controller
 {
@@ -36,6 +37,7 @@ class MentorController extends Controller
     // esta función se encarga de guardar un mentor en la base de datos.
     public function store(MentorRequest $request)
     {
+        Log::emergency($request);
         $mentor = $request->all();
         $user = User::create($mentor);
 
