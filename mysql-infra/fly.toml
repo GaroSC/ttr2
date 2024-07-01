@@ -1,0 +1,28 @@
+# fly.toml app configuration file generated for ttr-mysql on 2024-06-30T15:25:22-06:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'ttr-mysql'
+primary_region = 'qro'
+
+[build]
+  image = 'mysql:8'
+
+[[vm]]
+  memory = '2gb'
+  cpu_kind = 'shared'
+  cpus = 1
+
+[processes]
+  app = """--datadir /data/mysql \
+    --mysql-native-password=ON"""
+
+# Add the following sections for all versions
+[mounts]
+  source = "mysqldata"
+  destination = "/data"
+
+[env]
+  MYSQL_DATABASE = "bdttr"
+  MYSQL_USER = "bdttruser"

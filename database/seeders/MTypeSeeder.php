@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\MType;
+use App\Models\Mtype;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -14,10 +14,10 @@ class MTypeSeeder extends Seeder
     public function run(): void
     {
         //
-        MType::create(['name' => 'Tutoria Individual']);
-        MType::create(['name' => 'Tutoria Grupal']);
-        MType::create(['name' => 'Tutoria de Regularización']);
-        MType::create(['name' => 'Tutoria de Recuperación Académica']);
-        MType::create(['name' => 'Tutoria entre Pares']);
+        Mtype::create(['name' => 'Tutoria Individual']);
+        Mtype::create(['name' => 'Tutoria Grupal']);
+        Mtype::create(['name' => 'Tutoria de Regularización']);
+        Mtype::create(['name' => 'Tutoria de Recuperación Académica']);
+        Mtype::create(['name' => 'Tutoria entre Pares']);
     }
 }
