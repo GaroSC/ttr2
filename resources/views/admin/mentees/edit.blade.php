@@ -36,6 +36,17 @@
                         @enderror
                     </div>
                 </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label" for="msituations">Situación Académica:</label>
+                    <div class="col-sm-10">
+                        <label for="id_label_single">                   
+                            <select class="js-example-basic-single js-states form-control rounded" id="id_label_single"></select>
+                        </label>
+                    </div> 
+                </div>
+
+                {{--  
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label" for="msituations">Situación Académica:</label>
                     <div class="col-sm-10">
@@ -54,6 +65,7 @@
                         @enderror
                     </div>
                 </div>
+                --}}
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label" for="phone">Teléfono:</label>
                     <div class="col-sm-10">
@@ -95,11 +107,14 @@
 @section('js')
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     
+    {{--  
     <script>
         $(document).ready(()=>{});
         $('#msituations').val(@json($ids_msituations));
     </script>
+    --}}
 
+    {{-- 
     <script>
         $(document).ready(function() {
             $('.js-example-basic-multiple').select2({
@@ -107,4 +122,5 @@
             });
         });
     </script>
+    --}}
 @stop

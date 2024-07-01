@@ -29,7 +29,7 @@
                     <td>{{ $mentee->name }}</td>
                     <td>{{ $mentee->id_ipn }}</td>
                     <td>
-                            {{ $mentee->msituation->name }}    
+                            {{--  {{ $mentee->msituation->name }} --}}    
                     </td>
                     <td>{{ $mentee->phone }}</td>
                     <td>{{ $mentee->email }}</td>

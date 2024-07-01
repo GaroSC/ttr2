@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
@@ -66,10 +67,10 @@ class User extends Authenticatable
         return $this->hasMany(Event::class);
     }
 
-    //Relacion uno a uno de usuario a situacion academica
-    public function msituation(): HasOne
+    //Relacion uno a muchos de usuario a situacion academica
+    public function msituations(): BelongsTo
     {
-        return $this->hasOne(Msituation::class);
+        return $this->belongsTo(Msituation::class);
     }
 
     public function adminlte_profile_url()
