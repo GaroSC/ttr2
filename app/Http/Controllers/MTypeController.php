@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\MType;
+use App\Models\Mtype;
 use Illuminate\Http\Request;
 
 class MTypeController extends Controller
@@ -13,7 +13,7 @@ class MTypeController extends Controller
     public function index()
     {
         //
-        $mTypes = MType::all();
+        $mTypes = Mtype::all();
 
         return view('mtypes.index', [
             'mTypes' => $mTypes,
